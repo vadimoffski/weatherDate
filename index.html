@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherDate</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="weather-container">
+      <section class="top-banner">
+        <div class="container">
+          <h1 class="heading">Simple Weather App</h1>
+          <form name="myForm">
+            <input
+              type="text"
+              name="city"
+              placeholder="Search for a city"
+              autofocus
+            />
+            <button type="submit" name="citySubmit">SUBMIT</button>
+            <span class="msg"></span>
+          </form>
+        </div>
+      </section>
+      <section class="weather">
+        <div class="container">
+          <div class="wrapper">
+            <ul>
+              <li class="city"></li>
+              <li class="temp"></li>
+              <li><img src="" alt="" class="icon" /></li>
+              <li class="desc"></li>
+              <li class="humidity"></li>
+              <li class="pressure"></li>
+              <li class="wind"></li>
+              <li class="deg"></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
