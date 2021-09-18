@@ -4,7 +4,7 @@ let inputForm = form.elements.city;
 form.addEventListener("submit", (e) => {
   function weatherDate() {
     fetch(
-      "http://api.openweathermap.org/data/2.5/weather?q=" +
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
         valueForm +
         "&units=metric&APPID=5d066958a60d315387d9492393935c19"
     )
@@ -16,7 +16,7 @@ form.addEventListener("submit", (e) => {
         document.querySelector(".temp").textContent = data.main.temp + "°C";
         document.querySelector(
           ".icon"
-        ).src = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+        ).src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
         document.querySelector(".humidity").textContent =
           "Humidity: " + data.main.humidity + "%";
         document.querySelector(".pressure").textContent =
