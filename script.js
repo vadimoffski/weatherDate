@@ -12,7 +12,43 @@ form.addEventListener("submit", (e) => {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         document.querySelector(".city").textContent = data.name;
+
+        let UTC = document.querySelector(".utc");
+
+        function clock() {
+          let timeZone = new Date(new Date().getTime() + data.timezone * 1000);
+          let dayOfWeek = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ];
+          let days = timeZone.getDay();
+          let time = [
+            timeZone.getHours(),
+            timeZone.getMinutes(),
+            timeZone.getSeconds(),
+          ];
+          if (time[0] < 10) {
+            time[0] = "0" + time[0];
+          }
+          if (time[1] < 10) {
+            time[1] = "0" + time[1];
+          }
+          if (time[2] < 10) {
+            time[2] = "0" + time[2];
+          }
+          let currentTime = [time[0], time[1], time[2]].join(":");
+
+          UTC.textContent = dayOfWeek[days] + " " + currentTime;
+        }
+        clock();
+
         document.querySelector(".temp").textContent = data.main.temp + "°C";
         document.querySelector(
           ".icon"
@@ -36,7 +72,7 @@ form.addEventListener("submit", (e) => {
   } else {
     hidePopup();
   }
-
+  form.reset();
   e.preventDefault();
 });
 
@@ -53,3 +89,20 @@ function hidePopup() {
     div.style.display = "none";
   }, 10000);
 }
+
+//Clock
+window.onload = function () {
+  setInterval(function () {
+    const seconds = new Date().getSeconds();
+    document.getElementById("seconds").innerHTML =
+      (seconds < 10 ? "0" : "") + seconds;
+
+    const minutes = new Date().getMinutes();
+    document.getElementById("minutes").innerHTML =
+      (minutes < 10 ? "0" : "") + minutes;
+
+    const hours = new Date().getHours();
+    document.getElementById("hours").innerHTML =
+      (hours < 10 ? "0" : "") + hours;
+  }, 1000);
+};
