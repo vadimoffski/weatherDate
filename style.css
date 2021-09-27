@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-weight: normal;
 }
 
 button {
@@ -26,82 +25,75 @@ ul {
   list-style: none;
 }
 body {
-  overflow-x: hidden;
-  background-color: #0a1f44;
+  background-color: #010b1b;
   font-family: "Roboto", sans-serif;
   color: #fff;
-  padding: 70px;
-}
-.weather-container {
-  display: flex;
 }
 .container {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
   padding: 0 15px;
+  margin: 0 auto;
 }
+.column-1 {
+  text-align: center;
+}
+
 .heading {
-  font-weight: bold;
-  font-size: 4rem;
-  letter-spacing: 0.02em;
-  padding: 0 0 30px 0;
 }
+.top-banner > *:not(:last-child) {
+  margin: 0px 0px 30px 0px;
+}
+
 .top-banner form {
-  position: relative;
-  display: flex;
-  align-items: center;
 }
-.top-banner form input {
-  font-size: 2rem;
-  height: 40px;
-  padding: 5px 5px 10px;
+.myInput {
+  outline: none;
+  padding: 5px 10px;
   border-bottom: 1px solid;
+  font-size: 16px;
 }
 .top-banner form input::placeholder {
+  font-size: 20px;
   color: inherit;
 }
 .top-banner form button {
-  font-size: 1rem;
+  margin-top: 10px;
+  font-size: 16px;
   font-weight: bold;
-  letter-spacing: 0.1em;
+  letter-spacing: 1px;
   padding: 15px 20px;
-  margin-left: 15px;
   border-radius: 5px;
-  background: #ff1e42;
+  background: #e2a011;
 }
 .top-banner form button:hover {
-  background: #c3112d;
+  background: #ec6110;
 }
-.top-banner form .msg {
-  position: absolute;
-  bottom: -40px;
-  left: 0;
-  max-width: 450px;
-  min-height: 40px;
-}
-
 /* ----------------------------------------------------------------- */
+.column-2 {
+  padding: 20px 0;
+}
 .wrapper {
   background-color: #fff;
+  max-width: 300px;
   color: #53627c;
-  width: 300px;
-  height: 400px;
   border-radius: 30px;
   text-align: center;
+  margin: 0 auto;
 }
 .weather {
   opacity: 0;
-  transition: ease opacity 5s;
+  transition: ease opacity 3s;
 }
 .weather.fadeInclass {
   opacity: 1;
 }
-ul > *:not(:last-child) {
-  margin: 0 0 15px 0;
-}
-ul {
+
+.weatherList {
   position: relative;
+}
+.weatherList > li:not(:last-child) {
+  margin: 0px 0px 10px 0px;
 }
 .city {
   font-size: 40px;
@@ -113,6 +105,7 @@ ul {
   position: absolute;
   top: 60px;
   right: 30px;
+  color: #ec6110;
 }
 .temp {
   font-size: 40px;
@@ -129,15 +122,20 @@ ul {
 }
 
 /* ______________________________________________________________ */
-.clock {
-  font-size: 60px;
+.generalClock {
+  margin: 50px 0 10px 0;
+  border-bottom: 1px solid red;
+  text-align: center;
+}
+.clock-list {
+  font-size: 20px;
   font-family: Verdana, Arial, Sans-serif;
   color: #fff;
 }
-.clock ul li {
+.clock-list li {
   display: inline;
 }
-.clock ul li#separator {
+.clock-list ul li#separator {
   animation: myfade 1s ease infinite;
 }
 
@@ -150,5 +148,31 @@ ul {
   }
   100% {
     opacity: 1;
+  }
+}
+/* tablet */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+/* laptop */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+/* desktop */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+/* only mobile */
+@media (max-width: 767px) {
+}
+@media (max-width: 320px) {
+  .myInput {
+    text-align: center;
   }
 }

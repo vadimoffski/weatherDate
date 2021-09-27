@@ -16,8 +16,8 @@ form.addEventListener("submit", (e) => {
         document.querySelector(".city").textContent = data.name;
 
         let UTC = document.querySelector(".utc");
-
-        function clock() {
+        //!clock with timezone
+        function clockUTC() {
           let timeZone = new Date(new Date().getTime() + data.timezone * 1000);
           let dayOfWeek = [
             "Sunday",
@@ -28,11 +28,11 @@ form.addEventListener("submit", (e) => {
             "Friday",
             "Saturday",
           ];
-          let days = timeZone.getDay();
+          let days = timeZone.getUTCDay();
           let time = [
-            timeZone.getHours(),
-            timeZone.getMinutes(),
-            timeZone.getSeconds(),
+            timeZone.getUTCHours(),
+            timeZone.getUTCMinutes(),
+            timeZone.getUTCSeconds(),
           ];
           if (time[0] < 10) {
             time[0] = "0" + time[0];
@@ -47,7 +47,7 @@ form.addEventListener("submit", (e) => {
 
           UTC.textContent = dayOfWeek[days] + " " + currentTime;
         }
-        clock();
+        clockUTC();
 
         document.querySelector(".temp").textContent = data.main.temp + "°C";
         document.querySelector(
@@ -60,7 +60,7 @@ form.addEventListener("submit", (e) => {
         document.querySelector(".wind").textContent =
           "Wind: " + data.wind.speed + "mph";
         document.querySelector(".deg").textContent =
-          "Direction of the wind: " + data.wind.deg + "deg";
+          "Direction of the wind: " + data.wind.deg + "°";
         document.querySelector(".desc").textContent =
           data.weather[0].description;
       });
@@ -90,7 +90,7 @@ function hidePopup() {
   }, 10000);
 }
 
-//Clock
+//Clock general
 window.onload = function () {
   setInterval(function () {
     const seconds = new Date().getSeconds();
